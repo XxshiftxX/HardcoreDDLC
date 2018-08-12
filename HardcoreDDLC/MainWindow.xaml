@@ -7,6 +7,12 @@
         mc:Ignorable="d"
         Title="MainWindow" Height="450" Width="800">
     <Grid>
-        
+        <Image Source="textbox.png" Margin="10, 0, 10, 200">
+            
+        </Image>
+        <local:ScriptTextBlock x:Name="HH" FontSize="15pt" Margin="30, 55" Fill="White" Stroke="Black" FontFamily="NanumGothic" FontWeight="Bold">
+            "대회에 대한건 공지에 올려뒀으니 모두 확인하도록 해~"
+        </local:ScriptTextBlock>
+        <Button Margin="140, 300, 140, 0" Click="Button_Click"/>
     </Grid>
 </Window>

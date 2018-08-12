@@ -1,0 +1,12 @@
+D:\Programing\CSharp\HardcoreDDLC\TESTER\bin\Debug\TESTER.exe.config
+D:\Programing\CSharp\HardcoreDDLC\TESTER\bin\Debug\TESTER.exe
+D:\Programing\CSharp\HardcoreDDLC\TESTER\bin\Debug\TESTER.pdb
+D:\Programing\CSharp\HardcoreDDLC\TESTER\obj\Debug\TESTER.csprojAssemblyReference.cache
+D:\Programing\CSharp\HardcoreDDLC\TESTER\obj\Debug\TESTER.csproj.CoreCompileInputs.cache
+D:\Programing\CSharp\HardcoreDDLC\TESTER\obj\Debug\TESTER.exe
+D:\Programing\CSharp\HardcoreDDLC\TESTER\obj\Debug\TESTER.pdb
+D:\Programing\CSharp\HardcoreDDLC\TESTER\bin\Debug\AutoItX3.dll
+D:\Programing\CSharp\HardcoreDDLC\TESTER\bin\Debug\AutoItX3_x64.dll
+D:\Programing\CSharp\HardcoreDDLC\TESTER\bin\Debug\AutoItX3.Assembly.dll
+D:\Programing\CSharp\HardcoreDDLC\TESTER\bin\Debug\AutoItX3.Assembly.xml
+D:\Programing\CSharp\HardcoreDDLC\TESTER\obj\Debug\TESTER.csproj.CopyComplete

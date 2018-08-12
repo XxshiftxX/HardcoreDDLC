@@ -5,6 +5,8 @@ VisualStudioVersion = 15.0.27703.2018
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "HardcoreDDLC", "HardcoreDDLC\HardcoreDDLC.csproj", "{CE32CB89-CE61-4B25-8D3D-C6E9FDA84AA3}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TESTER", "TESTER\TESTER.csproj", "{FE7DF563-FEEE-41D3-B0DF-7572125C6024}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -15,6 +17,10 @@ Global
 		{CE32CB89-CE61-4B25-8D3D-C6E9FDA84AA3}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{CE32CB89-CE61-4B25-8D3D-C6E9FDA84AA3}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{CE32CB89-CE61-4B25-8D3D-C6E9FDA84AA3}.Release|Any CPU.Build.0 = Release|Any CPU
+		{FE7DF563-FEEE-41D3-B0DF-7572125C6024}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{FE7DF563-FEEE-41D3-B0DF-7572125C6024}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{FE7DF563-FEEE-41D3-B0DF-7572125C6024}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{FE7DF563-FEEE-41D3-B0DF-7572125C6024}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

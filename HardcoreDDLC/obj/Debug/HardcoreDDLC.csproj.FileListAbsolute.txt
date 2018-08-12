@@ -13,3 +13,4 @@ D:\Programing\CSharp\HardcoreDDLC\HardcoreDDLC\obj\Debug\HardcoreDDLC.csproj.Gen
 D:\Programing\CSharp\HardcoreDDLC\HardcoreDDLC\obj\Debug\HardcoreDDLC.csproj.CoreCompileInputs.cache
 D:\Programing\CSharp\HardcoreDDLC\HardcoreDDLC\obj\Debug\HardcoreDDLC.exe
 D:\Programing\CSharp\HardcoreDDLC\HardcoreDDLC\obj\Debug\HardcoreDDLC.pdb
+D:\Programing\CSharp\HardcoreDDLC\HardcoreDDLC\obj\Debug\GeneratedInternalTypeHelper.g.cs

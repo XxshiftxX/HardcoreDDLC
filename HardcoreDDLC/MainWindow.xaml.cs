@@ -12,6 +12,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using System.Windows.Threading;
 
 namespace HardcoreDDLC
 {
@@ -20,9 +21,19 @@ namespace HardcoreDDLC
     /// </summary>
     public partial class MainWindow : Window
     {
+        int n = 0;
         public MainWindow()
         {
             InitializeComponent();
+
+            HH.Scripts.Add("Hello World and JUUUUUST Monika!");
+            HH.Scripts.Add("This is My test scripts");
+            HH.Scripts.Add("사실 나츠키 체고다 시발여신 낮추키~~~");
+        }
+
+        private void Button_Click(object sender, RoutedEventArgs e)
+        {
+            HH.Input();
         }
     }
 }
