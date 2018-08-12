@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Diagnostics;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -22,18 +23,71 @@ namespace HardcoreDDLC
     public partial class MainWindow : Window
     {
         int n = 0;
+        public DispatcherTimer OnlyTopTimer = new DispatcherTimer();
+        public DispatcherTimer MouseCaptureTimer = new DispatcherTimer();
+
+        public bool IsDragging = false;
+        public Point ClickedPosition = default;
+
         public MainWindow()
         {
             InitializeComponent();
 
-            HH.Scripts.Add("Hello World and JUUUUUST Monika!");
-            HH.Scripts.Add("This is My test scripts");
-            HH.Scripts.Add("사실 나츠키 체고다 시발여신 낮추키~~~");
+            WindowStyle = WindowStyle.None;
+
+            OnlyTopSetup();
+            MouseSetup();
         }
 
-        private void Button_Click(object sender, RoutedEventArgs e)
+        private void MouseSetup()
         {
-            HH.Input();
+            MouseCaptureTimer.Tick += MouseCaptureTimer_Tick;
+        }
+
+        private void OnlyTopSetup()
+        {
+            OnlyTopTimer.Tick += (e, arg) =>
+            {
+                if (!IsActive)
+                {
+                    Activate();
+                    MessageBox.Show("야임마 ㅎㅎ..");
+                    Debug.WriteLine(11);
+                };
+            };
+
+            OnlyTopTimer.Interval = new TimeSpan(0, 0, 1);
+            //OnlyTopTimer.Start();
+        }
+
+        private void Rectangle_MouseLeftButtonDown(object sender, MouseButtonEventArgs e)
+        {
+            IsDragging = true;
+            ClickedPosition = e.GetPosition(VirtualWindow);
+            MouseCaptureTimer.Start();
+        }
+
+        private void Rectangle_MouseLeftButtonUp(object sender, MouseButtonEventArgs e)
+        {
+            IsDragging = false;
+            ClickedPosition = default;
+            MouseCaptureTimer.Stop();
+        }
+        
+        private void MouseCaptureTimer_Tick(object sender, EventArgs e)
+        {
+            if (IsDragging)
+            {
+                double X = 0;
+                double Y = 0;
+
+                X = (Mouse.GetPosition(null) - ClickedPosition).X;
+                Y = (Mouse.GetPosition(null) - ClickedPosition).Y;
+
+                VirtualWindow.SetValue(Canvas.LeftProperty, X);
+                VirtualWindow.SetValue(Canvas.TopProperty, Y);
+                Debug.WriteLine(Mouse.GetPosition(null));
+            }
         }
     }
 }

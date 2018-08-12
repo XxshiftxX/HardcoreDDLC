@@ -10,7 +10,7 @@ namespace TESTER
     {
         static void Main(string[] args)
         {
-            WriteLine("hello".Remove(5`));
+            WriteLine("hello".Remove(5));
         }
     }
 }

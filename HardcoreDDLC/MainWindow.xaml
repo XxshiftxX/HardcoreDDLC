@@ -5,14 +5,32 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:HardcoreDDLC"
         mc:Ignorable="d"
-        Title="MainWindow" Height="450" Width="800">
-    <Grid>
-        <Image Source="textbox.png" Margin="10, 0, 10, 200">
-            
-        </Image>
-        <local:ScriptTextBlock x:Name="HH" FontSize="15pt" Margin="30, 55" Fill="White" Stroke="Black" FontFamily="NanumGothic" FontWeight="Bold">
-            "대회에 대한건 공지에 올려뒀으니 모두 확인하도록 해~"
-        </local:ScriptTextBlock>
-        <Button Margin="140, 300, 140, 0" Click="Button_Click"/>
-    </Grid>
+        Title="MainWindow" Width="1600" Height="900"
+        AllowsTransparency="True" Background="Transparent" WindowState="Maximized" >
+    <Window.Resources>
+        <ControlTemplate x:Key="TransparentButton" TargetType="{x:Type Button}">
+            <Border Name="Border" BorderBrush="{TemplateBinding BorderBrush}" BorderThickness="{TemplateBinding BorderThickness}" Background="{TemplateBinding Background}">
+                <ContentPresenter Content="{TemplateBinding Content}" ContentTemplate="{TemplateBinding ContentTemplate}" Margin="{TemplateBinding Padding}" />
+            </Border>
+            <ControlTemplate.Triggers>
+                <Trigger Property="Button.IsFocused" Value="True">
+                    <Setter TargetName="Border" Property="Background" Value="Transparent" />
+                </Trigger>
+            </ControlTemplate.Triggers>
+        </ControlTemplate>
+    </Window.Resources>
+    <Canvas >
+        <Canvas x:Name="VirtualWindow" Width="1280" Height="750" Canvas.Left="40">
+            <Grid Height="30" Width="1280">
+                <Rectangle Fill="White"/>
+                <TextBlock FontSize="15" Margin="20, 0" VerticalAlignment="Center">Buffed Monika</TextBlock>
+                <Rectangle Fill="Transparent" MouseLeftButtonDown="Rectangle_MouseLeftButtonDown" MouseLeftButtonUp="Rectangle_MouseLeftButtonUp"/>
+            </Grid>
+
+            <Canvas Width="1280" Height="720" Canvas.Top="30">
+                <Image Width="1280" Height="720" Source="club.png" Stretch="Fill"/>
+                <Image x:Name="Monika" Height="625" Canvas.Left="310" Source="3b.png" Stretch="Fill" Canvas.Top="95" Width="625"/>
+            </Canvas>
+        </Canvas>
+    </Canvas>
 </Window>
