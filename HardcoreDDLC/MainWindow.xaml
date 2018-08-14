@@ -19,8 +19,8 @@
             </ControlTemplate.Triggers>
         </ControlTemplate>
     </Window.Resources>
-    <Canvas >
-        <Canvas x:Name="VirtualWindow" Width="1280" Height="750" Canvas.Left="420" Canvas.Top="100">
+    <Canvas>
+        <Canvas x:Name="VirtualWindow" Width="1280" Height="750" Canvas.Left="-100" Canvas.Top="100">
             <Grid Height="30" Width="1280">
                 <Rectangle Fill="White"/>
                 <TextBlock FontSize="15" Margin="20, 0" VerticalAlignment="Center">Buffed Monika</TextBlock>

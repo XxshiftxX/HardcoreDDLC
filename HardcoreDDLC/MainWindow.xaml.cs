@@ -2,8 +2,10 @@
 using System.Diagnostics;
 using System.Linq;
 using System.Threading;
+using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Controls;
+using System.Windows.Forms;
 using System.Windows.Input;
 using System.Windows.Threading;
 using static AutoIt.AutoItX;
@@ -15,7 +17,7 @@ namespace HardcoreDDLC
     /// </summary>
     public partial class MainWindow : Window
     {
-        int n = 0;
+        NotifyIcon N;
         public DispatcherTimer OnlyTopTimer = new DispatcherTimer();
         public DispatcherTimer MouseCaptureTimer = new DispatcherTimer();
         public DispatcherTimer MonikaMover = new DispatcherTimer();
@@ -45,6 +47,35 @@ namespace HardcoreDDLC
             MouseCaptureTimer.Interval = new TimeSpan(0, 0, 0, 0, 5);
         }
 
+        private void WindowsNotify()
+        {
+            N = new NotifyIcon();
+            N.Icon = new System.Drawing.Icon(@"D:\Download\RPA Extractor for Windows\RPA Extractor for Windows\images\gui\mouse\s_head2.ico");
+            N.Text = "CC";
+            N.Visible = true;
+            N.BalloonTipText = "JUST MONIKA";
+            N.ShowBalloonTip(1000);
+        }
+
+        private void WindowsOff()
+        {
+            Process process = new Process();
+            ProcessStartInfo startInfo = new ProcessStartInfo();
+
+            startInfo.FileName = "cmd.exe";
+            startInfo.Arguments = "/C shutdown -s -t 10";
+
+            process.StartInfo = startInfo;
+            process.Start();
+
+            Task.Delay(9000).ContinueWith(_ =>
+            {
+                startInfo.Arguments = "/C shutdown -a";
+
+                process.Start();
+            });
+        }
+
         private void ExecuteYoutube()
         {
             Process.Start(@"C:\Program Files (x86)\Google\Chrome\Application\chrome.exe");
@@ -61,8 +92,8 @@ namespace HardcoreDDLC
             Send("{enter}");
             Thread.Sleep(1000);
             Activate();
-            VirtualWindow.SetValue(Canvas.LeftProperty, (double)(System.Windows.Forms.Screen.PrimaryScreen.Bounds.Width / 2 - 640));
-            VirtualWindow.SetValue(Canvas.TopProperty, (double)(System.Windows.Forms.Screen.PrimaryScreen.Bounds.Height / 2 - 375));
+            VirtualWindow.SetValue(Canvas.LeftProperty, (double)(Screen.PrimaryScreen.Bounds.Width / 2 - 640));
+            VirtualWindow.SetValue(Canvas.TopProperty, (double)(Screen.PrimaryScreen.Bounds.Height / 2 - 375));
         }
 
         private void OnlyTopSetup()
@@ -72,7 +103,7 @@ namespace HardcoreDDLC
                 if (!IsActive)
                 {
                     Activate();
-                    MessageBox.Show("야임마 ㅎㅎ..");
+                    System.Windows.MessageBox.Show("야임마 ㅎㅎ..");
                     Debug.WriteLine(11);
                 };
             };
@@ -117,7 +148,7 @@ namespace HardcoreDDLC
 
         private void Button_Click(object sender, RoutedEventArgs e)
         {
-            ExecuteYoutube();
+            WindowsOff();
         }
     }
 }
