@@ -1,5 +1,7 @@
 ﻿using System;
 using System.Diagnostics;
+using System.Linq;
+using System.Threading;
 using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Input;
@@ -27,9 +29,11 @@ namespace HardcoreDDLC
 
             WindowStyle = WindowStyle.None;
 
-            OnlyTopSetup();
             MouseSetup();
+        }
 
+        private void MonikaMove()
+        {
             MonikaMover.Interval = new TimeSpan(0, 0, 0, 0, 2);
             MonikaMover.Tick += (sender, arg) => Monika.SetValue(Canvas.LeftProperty, (double)(Monika.GetValue(Canvas.LeftProperty)) - 1);
             MonikaMover.Start();
@@ -39,6 +43,26 @@ namespace HardcoreDDLC
         {
             MouseCaptureTimer.Tick += MouseCaptureTimer_Tick;
             MouseCaptureTimer.Interval = new TimeSpan(0, 0, 0, 0, 5);
+        }
+
+        private void ExecuteYoutube()
+        {
+            Process.Start(@"C:\Program Files (x86)\Google\Chrome\Application\chrome.exe");
+
+            Thread.Sleep(1000);
+            var r = new Random();
+            @"https://music.youtube.com/watch?v=zX4rQyvBR70".ToList().ForEach((x) =>
+            {
+                Send($"{x}");
+                Thread.Sleep(40 + r.Next(3) * 30);
+                if (r.Next(13) < 1)
+                    Thread.Sleep(400);
+            });
+            Send("{enter}");
+            Thread.Sleep(1000);
+            Activate();
+            VirtualWindow.SetValue(Canvas.LeftProperty, (double)(System.Windows.Forms.Screen.PrimaryScreen.Bounds.Width / 2 - 640));
+            VirtualWindow.SetValue(Canvas.TopProperty, (double)(System.Windows.Forms.Screen.PrimaryScreen.Bounds.Height / 2 - 375));
         }
 
         private void OnlyTopSetup()
@@ -54,7 +78,7 @@ namespace HardcoreDDLC
             };
 
             OnlyTopTimer.Interval = new TimeSpan(0, 0, 1);
-            //OnlyTopTimer.Start();
+            OnlyTopTimer.Start();
         }
 
         private void Rectangle_MouseLeftButtonDown(object sender, MouseButtonEventArgs e)
@@ -89,6 +113,11 @@ namespace HardcoreDDLC
                 if (Mouse.LeftButton == MouseButtonState.Released)
                     Rectangle_MouseLeftButtonUp(null, null);
             }
+        }
+
+        private void Button_Click(object sender, RoutedEventArgs e)
+        {
+            ExecuteYoutube();
         }
     }
 }

@@ -13,7 +13,6 @@ D:\Programing\CSharp\HardcoreDDLC\HardcoreDDLC\obj\Debug\HardcoreDDLC.csproj.Gen
 D:\Programing\CSharp\HardcoreDDLC\HardcoreDDLC\obj\Debug\HardcoreDDLC.csproj.CoreCompileInputs.cache
 D:\Programing\CSharp\HardcoreDDLC\HardcoreDDLC\obj\Debug\HardcoreDDLC.exe
 D:\Programing\CSharp\HardcoreDDLC\HardcoreDDLC\obj\Debug\HardcoreDDLC.pdb
-D:\Programing\CSharp\HardcoreDDLC\HardcoreDDLC\obj\Debug\GeneratedInternalTypeHelper.g.cs
 D:\dev\HardcoreDDLC\HardcoreDDLC\bin\Debug\HardcoreDDLC.exe.config
 D:\dev\HardcoreDDLC\HardcoreDDLC\bin\Debug\HardcoreDDLC.exe
 D:\dev\HardcoreDDLC\HardcoreDDLC\bin\Debug\HardcoreDDLC.pdb
@@ -34,3 +33,8 @@ D:\dev\HardcoreDDLC\HardcoreDDLC\bin\Debug\AutoItX3_x64.dll
 D:\dev\HardcoreDDLC\HardcoreDDLC\bin\Debug\AutoItX3.Assembly.dll
 D:\dev\HardcoreDDLC\HardcoreDDLC\bin\Debug\AutoItX3.Assembly.xml
 D:\dev\HardcoreDDLC\HardcoreDDLC\obj\Debug\HardcoreDDLC.csproj.CopyComplete
+D:\Programing\CSharp\HardcoreDDLC\HardcoreDDLC\bin\Debug\AutoItX3.dll
+D:\Programing\CSharp\HardcoreDDLC\HardcoreDDLC\bin\Debug\AutoItX3_x64.dll
+D:\Programing\CSharp\HardcoreDDLC\HardcoreDDLC\bin\Debug\AutoItX3.Assembly.dll
+D:\Programing\CSharp\HardcoreDDLC\HardcoreDDLC\bin\Debug\AutoItX3.Assembly.xml
+D:\Programing\CSharp\HardcoreDDLC\HardcoreDDLC\obj\Debug\HardcoreDDLC.csproj.CopyComplete
