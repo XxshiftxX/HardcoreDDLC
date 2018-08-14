@@ -20,11 +20,64 @@
         </ControlTemplate>
     </Window.Resources>
     <Canvas >
-        <Canvas x:Name="VirtualWindow" Width="1280" Height="750" Canvas.Left="40">
+        <Canvas x:Name="VirtualWindow" Width="1280" Height="750" Canvas.Left="420" Canvas.Top="100">
             <Grid Height="30" Width="1280">
                 <Rectangle Fill="White"/>
                 <TextBlock FontSize="15" Margin="20, 0" VerticalAlignment="Center">Buffed Monika</TextBlock>
                 <Rectangle Fill="Transparent" MouseLeftButtonDown="Rectangle_MouseLeftButtonDown" MouseLeftButtonUp="Rectangle_MouseLeftButtonUp"/>
+                <StackPanel HorizontalAlignment="Right" Orientation="Horizontal">
+                    <Button Background="White" Width="45" BorderThickness="0" Margin="1">
+                        <Button.Template>
+                            <ControlTemplate TargetType="{x:Type Button}">
+                                <Border Name="Border" BorderBrush="{TemplateBinding BorderBrush}" BorderThickness="{TemplateBinding BorderThickness}" Background="{TemplateBinding Background}">
+                                    <ContentPresenter Content="{TemplateBinding Content}" ContentTemplate="{TemplateBinding ContentTemplate}" Margin="{TemplateBinding Padding}" />
+                                </Border>
+                                <ControlTemplate.Triggers>
+                                    <Trigger Property="Button.IsMouseOver" Value="True">
+                                        <Setter TargetName="Border" Property="Background" Value="#FFC3C3C3" />
+                                    </Trigger>
+                                </ControlTemplate.Triggers>
+                            </ControlTemplate>
+                        </Button.Template>
+                        <TextBlock HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="25" FontFamily="NanumSquareRound Light" Margin="0, 6, 0, 0">
+                            -
+                        </TextBlock>
+                    </Button>
+                    <Button Background="White" Width="45" BorderThickness="0" Margin="1">
+                        <Button.Template>
+                            <ControlTemplate TargetType="{x:Type Button}">
+                                <Border Name="Border" BorderBrush="{TemplateBinding BorderBrush}" BorderThickness="{TemplateBinding BorderThickness}" Background="{TemplateBinding Background}">
+                                    <ContentPresenter Content="{TemplateBinding Content}" ContentTemplate="{TemplateBinding ContentTemplate}" Margin="{TemplateBinding Padding}" />
+                                </Border>
+                                <ControlTemplate.Triggers>
+                                    <Trigger Property="Button.IsMouseOver" Value="True">
+                                        <Setter TargetName="Border" Property="Background" Value="#FFC3C3C3" />
+                                    </Trigger>
+                                </ControlTemplate.Triggers>
+                            </ControlTemplate>
+                        </Button.Template>
+                        <TextBlock HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="16" FontFamily="NanumSquareRound Light" Margin="0, 5, 0, 0">
+                            □
+                        </TextBlock>
+                    </Button>
+                    <Button Background="White" Width="45" BorderThickness="0" Margin="1">
+                        <Button.Template>
+                            <ControlTemplate TargetType="{x:Type Button}">
+                                <Border Name="Border" BorderBrush="{TemplateBinding BorderBrush}" BorderThickness="{TemplateBinding BorderThickness}" Background="{TemplateBinding Background}">
+                                    <ContentPresenter Content="{TemplateBinding Content}" ContentTemplate="{TemplateBinding ContentTemplate}" Margin="{TemplateBinding Padding}" />
+                                </Border>
+                                <ControlTemplate.Triggers>
+                                    <Trigger Property="Button.IsMouseOver" Value="True">
+                                        <Setter TargetName="Border" Property="Background" Value="#FFBB2718" />
+                                    </Trigger>
+                                </ControlTemplate.Triggers>
+                            </ControlTemplate>
+                        </Button.Template>
+                        <TextBlock HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="25" FontFamily="NanumSquareRound Light" Margin="0, 6, 0, 0">
+                            ×
+                        </TextBlock>
+                    </Button>
+                </StackPanel>
             </Grid>
 
             <Canvas Width="1280" Height="720" Canvas.Top="30">
