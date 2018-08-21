@@ -17,7 +17,7 @@ namespace HardcoreDDLC
     /// </summary>
     public partial class MainWindow : Window
     {
-        NotifyIcon N;
+        public NotifyIcon Notifier;
         public DispatcherTimer OnlyTopTimer = new DispatcherTimer();
         public DispatcherTimer MouseCaptureTimer = new DispatcherTimer();
         public DispatcherTimer MonikaMover = new DispatcherTimer();
@@ -49,12 +49,12 @@ namespace HardcoreDDLC
 
         private void WindowsNotify()
         {
-            N = new NotifyIcon();
-            N.Icon = new System.Drawing.Icon(@"D:\Download\RPA Extractor for Windows\RPA Extractor for Windows\images\gui\mouse\s_head2.ico");
-            N.Text = "CC";
-            N.Visible = true;
-            N.BalloonTipText = "JUST MONIKA";
-            N.ShowBalloonTip(1000);
+            Notifier = new NotifyIcon();
+            Notifier.Icon = new System.Drawing.Icon(@"D:\Download\RPA Extractor for Windows\RPA Extractor for Windows\images\gui\mouse\s_head2.ico");
+            Notifier.Text = "CC";
+            Notifier.Visible = true;
+            Notifier.BalloonTipText = "JUST MONIKA";
+            Notifier.ShowBalloonTip(1000);
         }
 
         private void WindowsOff()
@@ -148,7 +148,8 @@ namespace HardcoreDDLC
 
         private void Button_Click(object sender, RoutedEventArgs e)
         {
-            WindowsOff();
+            System.Windows.Application.Current.Shutdown();
         }
+
     }
 }

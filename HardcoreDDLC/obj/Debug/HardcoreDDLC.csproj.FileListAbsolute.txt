@@ -38,3 +38,4 @@ D:\Programing\CSharp\HardcoreDDLC\HardcoreDDLC\bin\Debug\AutoItX3_x64.dll
 D:\Programing\CSharp\HardcoreDDLC\HardcoreDDLC\bin\Debug\AutoItX3.Assembly.dll
 D:\Programing\CSharp\HardcoreDDLC\HardcoreDDLC\bin\Debug\AutoItX3.Assembly.xml
 D:\Programing\CSharp\HardcoreDDLC\HardcoreDDLC\obj\Debug\HardcoreDDLC.csproj.CopyComplete
+D:\Programing\CSharp\HardcoreDDLC\HardcoreDDLC\obj\Debug\GeneratedInternalTypeHelper.g.cs

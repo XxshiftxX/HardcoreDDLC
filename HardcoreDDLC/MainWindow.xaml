@@ -8,16 +8,39 @@
         Title="MainWindow" Width="1600" Height="900"
         AllowsTransparency="True" Background="Transparent" WindowState="Maximized" >
     <Window.Resources>
-        <ControlTemplate x:Key="TransparentButton" TargetType="{x:Type Button}">
-            <Border Name="Border" BorderBrush="{TemplateBinding BorderBrush}" BorderThickness="{TemplateBinding BorderThickness}" Background="{TemplateBinding Background}">
-                <ContentPresenter Content="{TemplateBinding Content}" ContentTemplate="{TemplateBinding ContentTemplate}" Margin="{TemplateBinding Padding}" />
-            </Border>
-            <ControlTemplate.Triggers>
-                <Trigger Property="Button.IsFocused" Value="True">
-                    <Setter TargetName="Border" Property="Background" Value="Transparent" />
-                </Trigger>
-            </ControlTemplate.Triggers>
-        </ControlTemplate>
+        <Style x:Key="ButtonStyle" TargetType="{x:Type Button}">
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="Button">
+                        <Grid>
+                            <Image x:Name="BackGround" Source="shortButton.png"></Image>
+                            <ContentPresenter HorizontalAlignment="Center" VerticalAlignment="Center" TextBlock.FontSize="20" TextBlock.FontFamily="NanumGothic" TextBlock.FontWeight="Medium"/>
+                        </Grid>
+                        <ControlTemplate.Triggers>
+                            <Trigger Property="IsMouseOver" Value="True">
+                                <Setter TargetName="BackGround" Property="Source" Value="shortButtonHover.png"/>
+                            </Trigger>
+                        </ControlTemplate.Triggers>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+        </Style>
+        <Style x:Key="TransparentButton" TargetType="Button">
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="{x:Type Button}">
+                        <Border Name="Border" BorderThickness="0" Background="Transparent">
+                            <ContentPresenter Content="{TemplateBinding Content}" ContentTemplate="{TemplateBinding ContentTemplate}" Margin="{TemplateBinding Padding}" />
+                        </Border>
+                        <ControlTemplate.Triggers>
+                            <Trigger Property="Button.IsFocused" Value="True">
+                                <Setter TargetName="Border" Property="Background" Value="Transparent" />
+                            </Trigger>
+                        </ControlTemplate.Triggers>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+        </Style>
     </Window.Resources>
     <Canvas>
         <Canvas x:Name="VirtualWindow" Width="1280" Height="750" Canvas.Left="-100" Canvas.Top="100">
@@ -47,6 +70,19 @@
             <Canvas Width="1280" Height="720" Canvas.Top="30">
                 <Image Width="1280" Height="720" Source="club.png" Stretch="Fill"/>
                 <Image x:Name="Monika" Height="625" Canvas.Left="310" Source="3b.png" Stretch="Fill" Canvas.Top="95" Width="625"/>
+                <StackPanel Canvas.Right="10" Canvas.Top="10">
+                    <Button Canvas.Right="10" Canvas.Top="10" Style="{StaticResource ButtonStyle}" Click="MonikaEscape">
+                        외부 간섭
+                    </Button>
+                </StackPanel>
+                <Grid x:Name="UI" Canvas.Bottom="20" Width="1280">
+                    <Image Source="textbox.png" Width="800"/>
+                    <local:OutlinedTextBlock x:Name="ScriptTextBlock" Width="750" FontSize="25" Margin="18" Fill="White" FontWeight="SemiBold" FontFamily="NanumGothic" TextWrapping="Wrap">
+                        와! 코딩대회! 4차 산업혁명!
+                    </local:OutlinedTextBlock>
+                </Grid>
+                <Button x:Name="BackgroundButton" Width="1280" Height="720" Style="{StaticResource TransparentButton}" Click="BackgroundButton_Click">
+                </Button>
             </Canvas>
         </Canvas>
     </Canvas>
