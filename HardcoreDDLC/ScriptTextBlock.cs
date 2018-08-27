@@ -10,14 +10,15 @@ namespace HardcoreDDLC
 {
     class ScriptTextBlock : OutlinedTextBlock
     {
-        public List<string> Scripts = new List<string>();
+        private readonly List<string> Scripts = new List<string>();
 
         private int ScriptIndex = 0;
         private int ScriptCharIndex = 0;
         private bool isAnimating = false;
-        private DispatcherTimer timer = new DispatcherTimer();
+        
+        private readonly DispatcherTimer timer = new DispatcherTimer();
 
-        public double AnimSpeed
+        private double AnimSpeed
         {
             get => timer.Interval.TotalMilliseconds;
             set => timer.Interval = TimeSpan.FromMilliseconds(value);
@@ -52,21 +53,20 @@ namespace HardcoreDDLC
 
         private void Animation(object sender, EventArgs e)
         {
-            if (isAnimating)
-            {
-                var currentScript = Scripts[ScriptIndex];
+            if (!isAnimating) return;
+            
+            var currentScript = Scripts[ScriptIndex];
 
-                if (currentScript.Length > ++ScriptCharIndex)
-                {
-                    Text = currentScript.Remove(ScriptCharIndex);
-                }
-                else
-                {
-                    Text = currentScript;
-                    isAnimating = false;
-                    ScriptIndex++;
-                    timer.Stop();
-                }
+            if (currentScript.Length > ++ScriptCharIndex)
+            {
+                Text = currentScript.Remove(ScriptCharIndex);
+            }
+            else
+            {
+                Text = currentScript;
+                isAnimating = false;
+                ScriptIndex++;
+                timer.Stop();
             }
         }
     }

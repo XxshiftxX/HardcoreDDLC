@@ -67,23 +67,36 @@
                 </Button>
             </Grid>
 
-            <Canvas Width="1280" Height="720" Canvas.Top="30">
-                <Image Width="1280" Height="720" Source="club.png" Stretch="Fill"/>
-                <Image x:Name="Monika" Height="625" Canvas.Left="310" Source="3b.png" Stretch="Fill" Canvas.Top="95" Width="625"/>
-                <StackPanel Canvas.Right="10" Canvas.Top="10">
-                    <Button Canvas.Right="10" Canvas.Top="10" Style="{StaticResource ButtonStyle}" Click="MonikaEscape">
-                        외부 간섭
-                    </Button>
-                </StackPanel>
-                <Grid x:Name="UI" Canvas.Bottom="20" Width="1280">
-                    <Image Source="textbox.png" Width="800"/>
-                    <local:OutlinedTextBlock x:Name="ScriptTextBlock" Width="750" FontSize="25" Margin="18" Fill="White" FontWeight="SemiBold" FontFamily="NanumGothic" TextWrapping="Wrap">
-                        와! 코딩대회! 4차 산업혁명!
-                    </local:OutlinedTextBlock>
-                </Grid>
-                <Button x:Name="BackgroundButton" Width="1280" Height="720" Style="{StaticResource TransparentButton}" Click="BackgroundButton_Click">
-                </Button>
+            <Canvas Width="1280" Height="720" Canvas.Top="30" Background="White">
+                <Image Width="1278" Height="718" Source="club.png" Stretch="Fill" Margin="1"/>
+
+                
             </Canvas>
+        </Canvas>
+        
+        
+        
+        <Canvas Width="1280" Height="720" Canvas.Top="130">
+            <Image x:Name="Monika" Height="625" Canvas.Left="310" Source="3b.png" Stretch="Fill" Canvas.Top="95" Width="625"/>
+        </Canvas>
+
+
+        <Canvas x:Name="OverlayVirtualWindow" Width="1280" Height="720" Canvas.Left="-100" Canvas.Top="130">
+            <Grid x:Name="UI" Canvas.Bottom="20" Width="1280">
+                <Image Source="textbox.png" Width="800"/>
+                <local:OutlinedTextBlock x:Name="ScriptTextBlock" Width="750" FontSize="25" Margin="18" Fill="White" FontWeight="SemiBold" FontFamily="NanumGothic" TextWrapping="Wrap">
+                    와! 코딩대회! 4차 산업혁명!
+                </local:OutlinedTextBlock>
+
+            </Grid>
+            <Button x:Name="BackgroundButton" Width="1280" Height="720" Style="{StaticResource TransparentButton}" Click="BackgroundButton_Click">
+
+            </Button>
+            <StackPanel Canvas.Right="10" Canvas.Top="10">
+                <Button Style="{StaticResource ButtonStyle}" Click="MonikaEscape">
+                    외부 간섭
+                </Button>
+            </StackPanel>
         </Canvas>
     </Canvas>
 </Window>

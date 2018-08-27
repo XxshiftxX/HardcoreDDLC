@@ -2,11 +2,9 @@ D:\Programing\CSharp\HardcoreDDLC\HardcoreDDLC\bin\Debug\HardcoreDDLC.exe.config
 D:\Programing\CSharp\HardcoreDDLC\HardcoreDDLC\bin\Debug\HardcoreDDLC.exe
 D:\Programing\CSharp\HardcoreDDLC\HardcoreDDLC\bin\Debug\HardcoreDDLC.pdb
 D:\Programing\CSharp\HardcoreDDLC\HardcoreDDLC\obj\Debug\HardcoreDDLC.csprojAssemblyReference.cache
-D:\Programing\CSharp\HardcoreDDLC\HardcoreDDLC\obj\Debug\MainWindow.g.cs
 D:\Programing\CSharp\HardcoreDDLC\HardcoreDDLC\obj\Debug\App.g.cs
 D:\Programing\CSharp\HardcoreDDLC\HardcoreDDLC\obj\Debug\HardcoreDDLC_MarkupCompile.cache
 D:\Programing\CSharp\HardcoreDDLC\HardcoreDDLC\obj\Debug\HardcoreDDLC_MarkupCompile.lref
-D:\Programing\CSharp\HardcoreDDLC\HardcoreDDLC\obj\Debug\MainWindow.baml
 D:\Programing\CSharp\HardcoreDDLC\HardcoreDDLC\obj\Debug\HardcoreDDLC.g.resources
 D:\Programing\CSharp\HardcoreDDLC\HardcoreDDLC\obj\Debug\HardcoreDDLC.Properties.Resources.resources
 D:\Programing\CSharp\HardcoreDDLC\HardcoreDDLC\obj\Debug\HardcoreDDLC.csproj.GenerateResource.cache
@@ -39,3 +37,5 @@ D:\Programing\CSharp\HardcoreDDLC\HardcoreDDLC\bin\Debug\AutoItX3.Assembly.dll
 D:\Programing\CSharp\HardcoreDDLC\HardcoreDDLC\bin\Debug\AutoItX3.Assembly.xml
 D:\Programing\CSharp\HardcoreDDLC\HardcoreDDLC\obj\Debug\HardcoreDDLC.csproj.CopyComplete
 D:\Programing\CSharp\HardcoreDDLC\HardcoreDDLC\obj\Debug\GeneratedInternalTypeHelper.g.cs
+D:\Programing\CSharp\HardcoreDDLC\HardcoreDDLC\obj\Debug\MainWindow.g.cs
+D:\Programing\CSharp\HardcoreDDLC\HardcoreDDLC\obj\Debug\MainWindow.baml

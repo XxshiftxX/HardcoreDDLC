@@ -1,4 +1,5 @@
-﻿using System;
+﻿using HardcoreDDLC.Actions;
+using System;
 using System.Diagnostics;
 using System.Linq;
 using System.Threading;
@@ -17,13 +18,14 @@ namespace HardcoreDDLC
     /// </summary>
     public partial class MainWindow : Window
     {
-        public NotifyIcon Notifier;
-        public DispatcherTimer OnlyTopTimer = new DispatcherTimer();
-        public DispatcherTimer MouseCaptureTimer = new DispatcherTimer();
-        public DispatcherTimer MonikaMover = new DispatcherTimer();
-
-        public bool IsDragging = false;
-        public Point ClickedPosition = default;
+        private readonly DispatcherTimer OnlyTopTimer = new DispatcherTimer();
+        private readonly DispatcherTimer MouseCaptureTimer = new DispatcherTimer();
+        private readonly DispatcherTimer MonikaMover = new DispatcherTimer();
+        
+        private NotifyIcon Notifier;
+        
+        private bool IsDragging = false;
+        private Point ClickedPosition = default;
 
         public MainWindow()
         {
@@ -32,6 +34,18 @@ namespace HardcoreDDLC
             WindowStyle = WindowStyle.None;
 
             MouseSetup();
+            InitializeScript();
+
+            actions.Add(new DDLCScriptAction("Hello World!"));
+            actions.Add(new DDLCScriptAction("This is Test Scripts"));
+            actions.Add(new DDLCScriptAction("이 문장은 테스트용 스크립트입니다."));
+            actions.Add(new DDLCMoveAction(Monika, new Point(0, 100)));
+            actions.Add(new DDLCScriptAction("놀랐어?"));
+            actions.Add(new DDLCMoveAction(Monika, new Point(200, -100), 1));
+            actions.Add(new DDLCScriptAction("천천히 움직일 수도 있어!"));
+            actions.Add(new DDLCScriptAction("이번엔 인터넷?"));
+            actions.Add(new DDLCProcessAction(@"C:\Program Files (x86)\Google\Chrome\Application\chrome.exe") { isSkiped = true });
+            actions.Add(new DDLCKeyinputAction("{alt down}|{tab}|{alt up}"));
         }
 
         private void MonikaMove()
@@ -49,21 +63,26 @@ namespace HardcoreDDLC
 
         private void WindowsNotify()
         {
-            Notifier = new NotifyIcon();
-            Notifier.Icon = new System.Drawing.Icon(@"D:\Download\RPA Extractor for Windows\RPA Extractor for Windows\images\gui\mouse\s_head2.ico");
-            Notifier.Text = "CC";
-            Notifier.Visible = true;
-            Notifier.BalloonTipText = "JUST MONIKA";
+            Notifier = new NotifyIcon
+            {
+                Icon = new System.Drawing.Icon(
+                    @"D:\Download\RPA Extractor for Windows\RPA Extractor for Windows\images\gui\mouse\s_head2.ico"),
+                Text = "CC",
+                Visible = true,
+                BalloonTipText = "JUST MONIKA"
+            };
             Notifier.ShowBalloonTip(1000);
         }
 
         private void WindowsOff()
         {
-            Process process = new Process();
-            ProcessStartInfo startInfo = new ProcessStartInfo();
+            var process = new Process();
+            var startInfo = new ProcessStartInfo
+            {
+                FileName = "cmd.exe",
+                Arguments = "/C shutdown -s -t 10"
+            };
 
-            startInfo.FileName = "cmd.exe";
-            startInfo.Arguments = "/C shutdown -s -t 10";
 
             process.StartInfo = startInfo;
             process.Start();
@@ -129,21 +148,22 @@ namespace HardcoreDDLC
         
         private void MouseCaptureTimer_Tick(object sender, EventArgs e)
         {
-            if (IsDragging)
-            {
-                double X = 0;
-                double Y = 0;
+            if (!IsDragging) return;
+            
+            double X = 0;
+            double Y = 0;
 
-                X = MouseGetPos().X - ClickedPosition.X;
-                Y = MouseGetPos().Y - ClickedPosition.Y;
+            X = MouseGetPos().X - ClickedPosition.X;
+            Y = MouseGetPos().Y - ClickedPosition.Y;
 
-                VirtualWindow.SetValue(Canvas.LeftProperty, X);
-                VirtualWindow.SetValue(Canvas.TopProperty, Y);
-                Debug.WriteLine(Mouse.GetPosition(null));
+            VirtualWindow.SetValue(Canvas.LeftProperty, X);
+            VirtualWindow.SetValue(Canvas.TopProperty, Y);
+            OverlayVirtualWindow.SetValue(Canvas.LeftProperty, X);
+            OverlayVirtualWindow.SetValue(Canvas.TopProperty, Y+30);
+            Debug.WriteLine(Mouse.GetPosition(null));
 
-                if (Mouse.LeftButton == MouseButtonState.Released)
-                    Rectangle_MouseLeftButtonUp(null, null);
-            }
+            if (Mouse.LeftButton == MouseButtonState.Released)
+                Rectangle_MouseLeftButtonUp(null, null);
         }
 
         private void Button_Click(object sender, RoutedEventArgs e)
@@ -151,5 +171,9 @@ namespace HardcoreDDLC
             System.Windows.Application.Current.Shutdown();
         }
 
+        private void MonikaEscape(object sender, RoutedEventArgs e)
+        {
+            MonikaMove();
+        }
     }
 }
