@@ -1,6 +1,8 @@
 ﻿using HardcoreDDLC.Actions;
+using HardcoreDDLC.Functions;
 using System;
 using System.Diagnostics;
+using System.IO;
 using System.Linq;
 using System.Threading;
 using System.Threading.Tasks;
@@ -36,6 +38,10 @@ namespace HardcoreDDLC
             MouseSetup();
             InitializeScript();
 
+            ParseManager.ParseRawScript("hello#endl\nworld");
+
+            _actions = ParseManager.ParseRawScript(File.ReadAllText(@"D:\Programing\CSharp\HardcoreDDLC\TestScript.txt"));
+            /*
             _actions.Add(new DDLCDelayAction(3000) { isSkiped = true });
             _actions.Add(new DDLCScriptAction("딜레이 3초!"));
             _actions.Add(new DDLCProcessAction(@"C:\Program Files (x86)\Google\Chrome\Application\chrome.exe") { isSkiped = true });
@@ -44,6 +50,7 @@ namespace HardcoreDDLC
             _actions.Add(new DDLCScriptAction(@"크롬 프로그램을 실행하였습니다.
 경로 : C:\Program Files (x86)\Google\Chrome\Application\chrome.exe"));
             _actions.Add(new DDLCScriptAction("스크립트 재생해보기"));
+            */
         }
 
         private void MonikaMove()

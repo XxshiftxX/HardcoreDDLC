@@ -70,6 +70,7 @@
     <Compile Include="Functions\ActionManager.cs" />
     <Compile Include="Actions\DDLCAction.cs" />
     <Compile Include="Actions\DDLCKeyinputAction.cs" />
+    <Compile Include="Functions\ParseManager.cs" />
     <Compile Include="Functions\ScriptManager.cs" />
     <Compile Include="MainWindow.xaml.cs">
       <DependentUpon>MainWindow.xaml</DependentUpon>
