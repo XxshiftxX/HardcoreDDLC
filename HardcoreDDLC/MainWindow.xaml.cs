@@ -36,16 +36,14 @@ namespace HardcoreDDLC
             MouseSetup();
             InitializeScript();
 
-            actions.Add(new DDLCScriptAction("Hello World!"));
-            actions.Add(new DDLCScriptAction("This is Test Scripts"));
-            actions.Add(new DDLCScriptAction("이 문장은 테스트용 스크립트입니다."));
-            actions.Add(new DDLCMoveAction(Monika, new Point(0, 100)));
-            actions.Add(new DDLCScriptAction("놀랐어?"));
-            actions.Add(new DDLCMoveAction(Monika, new Point(200, -100), 1));
-            actions.Add(new DDLCScriptAction("천천히 움직일 수도 있어!"));
-            actions.Add(new DDLCScriptAction("이번엔 인터넷?"));
-            actions.Add(new DDLCProcessAction(@"C:\Program Files (x86)\Google\Chrome\Application\chrome.exe") { isSkiped = true });
-            actions.Add(new DDLCKeyinputAction("{alt down}|{tab}|{alt up}"));
+            _actions.Add(new DDLCDelayAction(3000) { isSkiped = true });
+            _actions.Add(new DDLCScriptAction("딜레이 3초!"));
+            _actions.Add(new DDLCProcessAction(@"C:\Program Files (x86)\Google\Chrome\Application\chrome.exe") { isSkiped = true });
+            _actions.Add(new DDLCDelayAction(1500) { isSkiped = true });
+            _actions.Add(new DDLCKeyinputAction("{alt down}{tab}{alt up}") { isSkiped = true });
+            _actions.Add(new DDLCScriptAction(@"크롬 프로그램을 실행하였습니다.
+경로 : C:\Program Files (x86)\Google\Chrome\Application\chrome.exe"));
+            _actions.Add(new DDLCScriptAction("스크립트 재생해보기"));
         }
 
         private void MonikaMove()
@@ -127,7 +125,7 @@ namespace HardcoreDDLC
                 };
             };
 
-            OnlyTopTimer.Interval = new TimeSpan(0, 0, 1);
+            OnlyTopTimer.Interval = new TimeSpan(0, 0, 0, 0, 10);
             OnlyTopTimer.Start();
         }
 

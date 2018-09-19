@@ -6,10 +6,10 @@ using System.Threading.Tasks;
 
 namespace HardcoreDDLC.Actions
 {
-    internal class DDLCProcessAction : DDLCAction
+    internal class DDLCDelayAction : DDLCAction
     {
-        public string Path { get; set; }
+        public int Time;
 
-        public DDLCProcessAction(string path) => Path = path;
+        public DDLCDelayAction(int time) => Time = time;
     }
 }

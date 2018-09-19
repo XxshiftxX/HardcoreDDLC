@@ -44,11 +44,17 @@
     </Window.Resources>
     <Canvas>
         <Canvas x:Name="VirtualWindow" Width="1280" Height="750" Canvas.Left="-100" Canvas.Top="100">
+            <Canvas.Effect>
+                <DropShadowEffect ShadowDepth="0"
+                                  Color="SkyBlue"
+                                  Opacity="1"
+                                  BlurRadius="5"/>
+            </Canvas.Effect>
             <Grid Height="30" Width="1280">
                 <Rectangle Fill="White"/>
                 <TextBlock FontSize="15" Margin="20, 0" VerticalAlignment="Center">Buffed Monika</TextBlock>
                 <Rectangle Fill="Transparent" MouseLeftButtonDown="Rectangle_MouseLeftButtonDown" MouseLeftButtonUp="Rectangle_MouseLeftButtonUp"/>
-                <Button Background="White" Width="45" BorderThickness="0" Margin="1" HorizontalAlignment="Right" Click="Button_Click">
+                <Button Background="White" Width="45" BorderThickness="0" Margin="1" HorizontalAlignment="Right" Click="Button_Click" Focusable="False">
                     <Button.Template>
                         <ControlTemplate TargetType="{x:Type Button}">
                             <Border Name="Border" BorderBrush="{TemplateBinding BorderBrush}" BorderThickness="{TemplateBinding BorderThickness}" Background="{TemplateBinding Background}">
@@ -89,11 +95,11 @@
                 </local:OutlinedTextBlock>
 
             </Grid>
-            <Button x:Name="BackgroundButton" Width="1280" Height="720" Style="{StaticResource TransparentButton}" Click="BackgroundButton_Click">
+            <Button x:Name="BackgroundButton" Width="1280" Height="720" Style="{StaticResource TransparentButton}" Click="BackgroundButton_Click" Focusable="False">
 
             </Button>
             <StackPanel Canvas.Right="10" Canvas.Top="10">
-                <Button Style="{StaticResource ButtonStyle}" Click="MonikaEscape">
+                <Button Style="{StaticResource ButtonStyle}" Click="MonikaEscape" Focusable="False">
                     외부 간섭
                 </Button>
             </StackPanel>

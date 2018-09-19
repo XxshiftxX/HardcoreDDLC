@@ -63,6 +63,7 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Compile Include="Actions\DDLCDelayAction.cs" />
     <Compile Include="Actions\DDLCMoveAction.cs" />
     <Compile Include="Actions\DDLCScriptAction.cs" />
     <Compile Include="Actions\DDLCStartProcess.cs" />
@@ -75,7 +76,6 @@
       <SubType>Code</SubType>
     </Compile>
     <Compile Include="OutlinedTextBlock.cs" />
-    <Compile Include="ScriptTextBlock.cs" />
     <Compile Include="App.xaml.cs">
       <DependentUpon>App.xaml</DependentUpon>
       <SubType>Code</SubType>

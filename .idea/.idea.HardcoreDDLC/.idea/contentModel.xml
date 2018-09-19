@@ -5,15 +5,21 @@
     <e p="D:\Programing\CSharp\HardcoreDDLC" t="IncludeFlat">
       <e p="HardcoreDDLC" t="IncludeRecursive">
         <e p="3b.png" t="Include" />
+        <e p="Actions" t="Include">
+          <e p="DDLCAction.cs" t="Include" />
+          <e p="DDLCDelayAction.cs" t="Include" />
+          <e p="DDLCKeyinputAction.cs" t="Include" />
+          <e p="DDLCMoveAction.cs" t="Include" />
+          <e p="DDLCScriptAction.cs" t="Include" />
+          <e p="DDLCStartProcess.cs" t="Include" />
+        </e>
         <e p="App.config" t="Include" />
         <e p="App.xaml" t="Include" />
         <e p="App.xaml.cs" t="Include" />
         <e p="bin" t="ExcludeRecursive" />
         <e p="club.png" t="Include" />
-        <e p="DDLCScriptAction.cs" t="Include" />
         <e p="Functions" t="Include">
           <e p="ActionManager.cs" t="Include" />
-          <e p="DDLCAction.cs" t="Include" />
           <e p="ScriptManager.cs" t="Include" />
         </e>
         <e p="HardcoreDDLC.csproj" t="IncludeRecursive" />
@@ -30,7 +36,6 @@
           <e p="Settings.settings" t="Include" />
         </e>
         <e p="s_head2.png" t="Include" />
-        <e p="ScriptTextBlock.cs" t="Include" />
         <e p="shortButton.png" t="Include" />
         <e p="shortButtonHover.png" t="Include" />
         <e p="textbox.png" t="Include" />
@@ -50,6 +55,23 @@
           <e p="AssemblyInfo.cs" t="Include" />
         </e>
         <e p="TESTER.csproj" t="IncludeRecursive" />
+      </e>
+      <e p="WPFDDLC" t="IncludeRecursive">
+        <e p="App.config" t="Include" />
+        <e p="App.xaml" t="Include" />
+        <e p="App.xaml.cs" t="Include" />
+        <e p="bin" t="ExcludeRecursive" />
+        <e p="MainWindow.xaml" t="Include" />
+        <e p="MainWindow.xaml.cs" t="Include" />
+        <e p="obj" t="ExcludeRecursive" />
+        <e p="Properties" t="Include">
+          <e p="AssemblyInfo.cs" t="Include" />
+          <e p="Resources.Designer.cs" t="Include" />
+          <e p="Resources.resx" t="Include" />
+          <e p="Settings.Designer.cs" t="Include" />
+          <e p="Settings.settings" t="Include" />
+        </e>
+        <e p="WPFDDLC.csproj" t="IncludeRecursive" />
       </e>
     </e>
   </component>
