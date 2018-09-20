@@ -91,7 +91,7 @@
             <Grid x:Name="UI" Canvas.Bottom="20" Width="1280">
                 <Image Source="textbox.png" Width="800"/>
                 <local:OutlinedTextBlock x:Name="ScriptTextBlock" Width="750" FontSize="25" Margin="18" Fill="White" FontWeight="SemiBold" FontFamily="NanumGothic" TextWrapping="Wrap">
-                    와! 코딩대회! 4차 산업혁명!
+                    .
                 </local:OutlinedTextBlock>
 
             </Grid>

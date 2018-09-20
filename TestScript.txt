@@ -3,15 +3,15 @@
 그리고 개행
 @
 @Move <Skip> <Speed> <PosX> <PosY>
-#Move F 500 80 0
+#Move F 0.5 400 0
 @
 @Key <Skip> <Keys>>
 #Key F 키보드 제어{Enter}
 @
 @Process <Skip> <Name>
-#Process T Chrome
+#Process T chrome
 @
 @Delay <Skip> <Time>
 #Delay T 100
-@   
+@
 @ 는 주석

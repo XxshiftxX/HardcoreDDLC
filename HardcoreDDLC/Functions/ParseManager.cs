@@ -23,11 +23,36 @@ namespace HardcoreDDLC.Functions
                 if (currentScript.StartsWith("#") && !currentScript.StartsWith("##"))
                 {
                     // Command Mode
-                    var args = currentScript.Remove(1).Split();
-                    switch(args[0])
+                    var args = currentScript.Split();
+                    switch (args[0].ToLower())
                     {
-                        case "Move":
-                            
+                        case "#move":
+                            resList.Add(new DDLCMoveAction(
+                                MainWindow.MonikaStatic,
+                                new System.Windows.Point(double.Parse(args[3]), double.Parse(args[4])),
+                                double.Parse(args[2]))
+                            { isSkiped = args[1] == "T" }
+                            );
+                            break;
+                        case "#key":
+                            resList.Add(new DDLCKeyinputAction(
+                                string.Join(" ", args.Skip(2))
+                            )
+                            { isSkiped = args[1] == "T" });
+                            break;
+                        case "#process":
+                            string e = null;
+                            switch (args[2])
+                            {
+                                case "chrome":
+                                    e = @"C:\Program Files (x86)\Google\Chrome\Application\chrome.exe";
+                                    break;
+                            }
+                            if (e != null)
+                                resList.Add(new DDLCProcessAction(e) { isSkiped = args[1] == "T" });
+                            break;
+                        case "#delay":
+                            resList.Add(new DDLCDelayAction(int.Parse(args[2])) { isSkiped = args[1] == "T" });
                             break;
                     }
                 }
@@ -37,13 +62,13 @@ namespace HardcoreDDLC.Functions
                     var strExtractor = new StringBuilder();
                     currentScript = currentScript.Replace("@@", "@").Replace("##", "#") + ' ';
                     string command = null;
-                    for(var i = 0; i < currentScript.Length; i++)
+                    for (var i = 0; i < currentScript.Length; i++)
                     {
                         var c = currentScript[i];
 
                         if (command == null)
                         {
-                            if(c == '#')
+                            if (c == '#')
                             {
                                 command = string.Empty;
                             }
@@ -52,9 +77,9 @@ namespace HardcoreDDLC.Functions
                         }
                         else
                         {
-                            if(c == ' ')
+                            if (c == ' ')
                             {
-                                switch(command)
+                                switch (command)
                                 {
                                     case "endl":
                                         currentScript = scriptReader.ReadLine().Replace("@@", "@").Replace("##", "#") + ' ';

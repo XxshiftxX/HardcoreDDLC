@@ -20,6 +20,7 @@ namespace HardcoreDDLC
     /// </summary>
     public partial class MainWindow : Window
     {
+        public static DependencyObject MonikaStatic;
         private readonly DispatcherTimer OnlyTopTimer = new DispatcherTimer();
         private readonly DispatcherTimer MouseCaptureTimer = new DispatcherTimer();
         private readonly DispatcherTimer MonikaMover = new DispatcherTimer();
@@ -35,12 +36,22 @@ namespace HardcoreDDLC
 
             WindowStyle = WindowStyle.None;
 
+            MonikaStatic = Monika;
+
             MouseSetup();
             InitializeScript();
 
-            ParseManager.ParseRawScript("hello#endl\nworld");
-
-            _actions = ParseManager.ParseRawScript(File.ReadAllText(@"D:\Programing\CSharp\HardcoreDDLC\TestScript.txt"));
+            var fd = new OpenFileDialog()
+            {
+                DefaultExt = "txt",
+                Filter = "Text Files(*.txt)|*.txt"
+            };
+            fd.ShowDialog();
+            if (fd.FileName.Length > 0)
+            {
+                _actions = ParseManager.ParseRawScript(File.ReadAllText(fd.FileName));
+            }
+            
             /*
             _actions.Add(new DDLCDelayAction(3000) { isSkiped = true });
             _actions.Add(new DDLCScriptAction("딜레이 3초!"));
